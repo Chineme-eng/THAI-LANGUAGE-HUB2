@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai Language Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE6D6;
+    --cream-darker: #E0D8C4;
+    --ink: #1A1410;
+    --ink-soft: #3D3028;
+    --ink-muted: #7A6A5A;
+    --orange: #E8722A;
+    --orange-light: #F0924A;
+    --orange-pale: #FDE8D4;
+    --purple: #6B4F8A;
+    --purple-light: #8B6FAA;
+    --purple-pale: #EDE8F5;
+    --blue: #3A6B8A;
+    --blue-light: #5A8BAA;
+    --blue-pale: #E4EEF5;
+    --green: #4A7A5A;
+    --green-light: #6A9A7A;
+    --green-pale: #E4F0E8;
+    --teal: #3A7A78;
+    --teal-pale: #E4F0EF;
+    --rose: #8A4A5A;
+    --rose-pale: #F5E4E8;
+    --gold: #A07830;
+    --gold-pale: #F5EDD4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--ink);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 40px,
+      rgba(232,114,42,0.04) 40px, rgba(232,114,42,0.04) 41px
+    );
+    pointer-events: none;
+  }
+  header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  header h1 span { color: var(--orange); }
+  header p {
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #9A8A7A;
+  }
+
+  .translate-bar {
+    background: var(--cream-darker);
+    border-bottom: 2px solid var(--cream-dark);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .translate-bar label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  #google_translate_element { display: inline-block; }
+  .goog-te-gadget-simple {
+    background: white !important;
+    border: 1.5px solid var(--orange) !important;
+    border-radius: 4px !important;
+    padding: 2px 8px !important;
+    font-family: 'Crimson Pro', serif !important;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .section-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .sec-btn {
+    background: var(--cream-dark);
+    border: 2px solid var(--cream-darker);
+    color: var(--ink-muted);
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .sec-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .sec-btn.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: white;
+  }
+
+  .section-content { display: none; }
+  .section-content.active { display: block; }
+
+  .lang-hero {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--ink);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .lang-hero::after {
+    content: '';
+    position: absolute;
+    right: -20px; top: -20px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(232,114,42,0.08);
+  }
+  .lang-flag { font-size: 3rem; line-height: 1; }
+  .lang-hero-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+  }
+  .lang-hero-text p {
+    color: #8A7A6A;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+  }
+  .lang-hero-text .native-name {
+    color: var(--orange);
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ── COLLAPSIBLE CULTURAL NOTES ── */
+  .cultural-drawer {
+    margin-bottom: 1.75rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1.5px solid var(--cream-darker);
+  }
+  .cultural-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--purple-pale);
+    border: none;
+    padding: 0.85rem 1.25rem;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--purple);
+    text-align: left;
+    transition: background 0.2s;
+  }
+  .cultural-toggle:hover { background: #E0D8F0; }
+  .cultural-toggle-chevron {
+    font-size: 0.85rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .cultural-drawer.open .cultural-toggle-chevron { transform: rotate(180deg); }
+  .cultural-body {
+    display: none;
+    background: var(--purple-pale);
+    border-top: 1px solid rgba(107,79,138,0.15);
+    padding: 1.25rem 1.5rem;
+  }
+  .cultural-drawer.open .cultural-body { display: block; }
+  .cultural-body ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .cultural-body li::before { content: '✦  '; color: var(--purple-light); }
+  .cultural-body li { color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* ── SUPER SECTIONS (accordion groups) ── */
+  .super-section {
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid var(--cream-darker);
+  }
+  .super-section-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    background: var(--cream-dark);
+    border: none;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: left;
+    transition: background 0.2s;
+    gap: 0.75rem;
+  }
+  .super-section-toggle:hover { background: var(--cream-darker); }
+  .super-section-toggle-left { display: flex; align-items: center; gap: 0.75rem; }
+  .super-section-badge {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.6rem;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.07);
+    color: var(--ink-muted);
+  }
+  .super-chevron {
+    font-size: 0.85rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    color: var(--ink-muted);
+  }
+  .super-section.open .super-chevron { transform: rotate(180deg); }
+  .super-section-body {
+    display: none;
+    padding: 1.25rem 1.25rem 0.5rem;
+    background: var(--cream);
+    border-top: 1.5px solid var(--cream-darker);
+  }
+  .super-section.open .super-section-body { display: block; }
+
+  /* color accents per super-section */
+  .super-core .super-section-toggle { border-left: 4px solid var(--rose); }
+  .super-daily .super-section-toggle { border-left: 4px solid var(--green); }
+  .super-language .super-section-toggle { border-left: 4px solid var(--blue); }
+  .super-culture .super-section-toggle { border-left: 4px solid var(--purple); }
+
+  /* ── CATEGORY BLOCKS ── */
+  .category-block { margin-bottom: 2rem; }
+  .category-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .cat-survival  { background: var(--rose-pale);   color: var(--rose);   }
+  .cat-numbers   { background: var(--gold-pale);   color: var(--gold);   }
+  .cat-food      { background: var(--green-pale);  color: var(--green);  }
+  .cat-transport { background: var(--blue-pale);   color: var(--blue);   }
+  .cat-social    { background: var(--purple-pale); color: var(--purple); }
+  .cat-money     { background: var(--teal-pale);   color: var(--teal);   }
+  .cat-housing   { background: var(--orange-pale); color: var(--orange); }
+  .cat-health    { background: var(--rose-pale);   color: var(--rose);   }
+  .cat-pronouns  { background: #EAF0FF; color: #3A5A9A; }
+  .cat-questions { background: #FFF0E4; color: #B05A20; }
+  .cat-greetings { background: #E8F5EC; color: #2E7A48; }
+  .cat-titles    { background: #F5EAF5; color: #7A3A8A; }
+  .cat-numbers20 { background: var(--gold-pale); color: var(--gold); }
+  .cat-media     { background: #F0EAF8; color: #5A3A7A; }
+  .cat-slang     { background: #FFF0E8; color: #C05A20; }
+  .cat-particles { background: #E8F0FF; color: #3A4A9A; }
+  .cat-calendar  { background: #E8F5F0; color: #2A7A5A; }
+  .cat-colors    { background: #F0F0F8; color: #4A4A8A; }
+  .cat-classifiers { background: #F5F0E0; color: #7A6A20; }
+
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.75rem;
+  }
+  .word-card {
+    background: white;
+    border: 1.5px solid var(--cream-darker);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    transition: all 0.18s;
+    cursor: default;
+  }
+  .word-card:hover {
+    border-color: var(--orange);
+    box-shadow: 0 3px 12px rgba(232,114,42,0.12);
+    transform: translateY(-1px);
+  }
+  .word-en {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 1rem;
+    min-width: 80px;
+  }
+  .word-translated {
+    font-size: 1.05rem;
+    color: var(--purple);
+    font-weight: 600;
+    text-align: right;
+    flex: 1;
+  }
+  .word-roman {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    text-align: right;
+  }
+  .word-right { text-align: right; }
+  .speak-btn {
+    background: var(--orange-pale);
+    border: none;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+    color: var(--orange);
+  }
+  .speak-btn:hover { background: var(--orange); color: white; transform: scale(1.1); }
+
+  /* ── SENTENCE GROUPS ── */
+  .sentence-group {
+    margin-bottom: 1.25rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1.5px solid var(--cream-darker);
+  }
+  .sentence-group-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.1rem;
+    background: var(--cream-dark);
+    border: none;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: left;
+    transition: background 0.2s;
+    gap: 0.5rem;
+  }
+  .sentence-group-toggle:hover { background: var(--cream-darker); }
+  .sentence-group-count {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.55rem;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.07);
+    color: var(--ink-muted);
+    flex-shrink: 0;
+  }
+  .sentence-group-right { display: flex; align-items: center; gap: 0.5rem; }
+  .sg-chevron {
+    font-size: 0.8rem;
+    transition: transform 0.25s;
+    color: var(--ink-muted);
+  }
+  .sentence-group.open .sg-chevron { transform: rotate(180deg); }
+  .sentence-group-body {
+    display: none;
+    padding: 0.75rem 1rem;
+    background: var(--cream);
+    border-top: 1.5px solid var(--cream-darker);
+  }
+  .sentence-group.open .sentence-group-body { display: block; }
+
+  .sentence-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .sentence-card {
+    background: white;
+    border: 1.5px solid var(--cream-darker);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.18s;
+  }
+  .sentence-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 3px 12px rgba(58,107,138,0.1);
+  }
+  .sentence-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--orange);
+    min-width: 32px;
+    padding-top: 2px;
+  }
+  .sentence-body { flex: 1; }
+  .sentence-en { font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+  .sentence-tr { color: var(--blue); font-size: 1.05rem; font-weight: 600; }
+  .sentence-roman { font-size: 0.85rem; color: var(--ink-muted); font-style: italic; margin-top: 0.15rem; }
+
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .emergency-card {
+    background: linear-gradient(135deg, #FFF5F0 0%, white 100%);
+    border: 2px solid var(--orange);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    transition: all 0.18s;
+  }
+  .emergency-card:hover { box-shadow: 0 4px 16px rgba(232,114,42,0.2); }
+  .emergency-en { font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; font-size: 1.05rem; }
+  .emergency-tr { color: var(--orange); font-size: 1.1rem; font-weight: 700; }
+  .emergency-roman { font-size: 0.85rem; color: var(--ink-muted); font-style: italic; margin-top: 0.15rem; }
+  .emergency-speak {
+    background: var(--orange);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    cursor: pointer;
+    margin-top: 0.6rem;
+    transition: all 0.15s;
+  }
+  .emergency-speak:hover { background: var(--orange-light); transform: scale(1.02); }
+
+  .fav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--cream-darker);
+    transition: color 0.15s;
+    padding: 0;
+    line-height: 1;
+  }
+  .fav-btn.faved { color: var(--orange); }
+  .fav-btn:hover { color: var(--orange-light); }
+
+  .search-bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .search-input {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border: 2px solid var(--cream-darker);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-input:focus { border-color: var(--orange); }
+  .search-input::placeholder { color: var(--ink-muted); }
+
+  .voice-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .voice-toggle-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .voice-toggle {
+    display: flex;
+    background: var(--cream-darker);
+    border-radius: 50px;
+    padding: 3px;
+    gap: 2px;
+  }
+  .voice-btn {
+    background: none;
+    border: none;
+    border-radius: 50px;
+    padding: 0.3rem 0.9rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--ink-muted);
+  }
+  .voice-btn.active {
+    background: var(--ink);
+    color: var(--cream);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+
+  .number-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.6rem;
+  }
+  .number-card {
+    background: white;
+    border: 1.5px solid var(--cream-darker);
+    border-radius: 10px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.18s;
+    position: relative;
+  }
+  .number-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 3px 10px rgba(160,120,48,0.15);
+    transform: translateY(-1px);
+  }
+  .number-digit {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .number-tr {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--purple);
+    margin-top: 0.2rem;
+  }
+  .number-rom {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-top: 0.1rem;
+  }
+  .number-card .speak-btn {
+    position: absolute;
+    top: 5px; right: 5px;
+    width: 24px; height: 24px;
+    font-size: 0.7rem;
+  }
+
+  footer {
+    background: var(--ink);
+    color: #6A5A4A;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  footer span { color: var(--orange); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .word-card, .sentence-card, .emergency-card {
+    animation: fadeUp 0.3s ease both;
+  }
+
+  /* ── WORD OF THE DAY ── */
+  .wotd-card {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .wotd-card::before {
+    content: '';
+    position: absolute;
+    right: -30px; top: -30px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(232,114,42,0.07);
+    pointer-events: none;
+  }
+  .wotd-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.2rem;
+  }
+  .wotd-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+  .wotd-tr {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--orange);
+    margin-top: 0.1rem;
+  }
+  .wotd-rom {
+    font-size: 0.85rem;
+    color: #8A7A6A;
+    font-style: italic;
+    margin-top: 0.1rem;
+  }
+  .wotd-speak {
+    margin-left: auto;
+    background: var(--orange);
+    border: none;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .wotd-speak:hover { background: var(--orange-light); transform: scale(1.1); }
+
+  /* ── FLIP CARD MODE ── */
+  .flip-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .flip-toggle-label { font-size: 0.85rem; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+  .flip-mode-btn {
+    background: var(--cream-darker);
+    border: 2px solid var(--cream-darker);
+    border-radius: 50px;
+    padding: 0.3rem 0.9rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--ink-muted);
+    transition: all 0.2s;
+  }
+  .flip-mode-btn.active { background: var(--purple); border-color: var(--purple); color: white; }
+
+  /* hide thai in flip mode */
+  body.flip-mode .word-translated,
+  body.flip-mode .word-roman { filter: blur(6px); transition: filter 0.2s; }
+  body.flip-mode .word-card:hover .word-translated,
+  body.flip-mode .word-card:hover .word-roman { filter: blur(0); }
+
+  /* ── TONE BADGE ── */
+  .tone-badge {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    title: '';
+  }
+  .tone-mid     { background: #5A8A6A; }
+  .tone-low     { background: #5A6A9A; }
+  .tone-falling { background: #8A5A5A; }
+  .tone-high    { background: #9A7A30; }
+  .tone-rising  { background: #7A5A9A; }
+  .word-card { position: relative; }
+
+  /* ── KEYBOARD HINT ── */
+  .kbd-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-left: auto;
+  }
+  kbd {
+    background: var(--cream-darker);
+    border: 1px solid #C8B89A;
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  /* ── CLEAR FAVS BUTTON ── */
+  .clear-favs-btn {
+    background: none;
+    border: 1.5px solid var(--rose);
+    color: var(--rose);
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .clear-favs-btn:hover { background: var(--rose); color: white; }
+  .fav-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--ink-muted);
+  }
+  .fav-empty .fav-empty-icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
+  .fav-empty p { font-style: italic; font-size: 1rem; }
+
+  /* ── FLOATING EMERGENCY BUTTON ── */
+  .emergency-fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    background: var(--rose);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.65rem 1.2rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(138,74,90,0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .emergency-fab:hover {
+    background: #A0304A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(138,74,90,0.5);
+  }
+  .emergency-fab .fab-label { display: inline; }
+
+  /* ── STICKY TABS ── */
+  .section-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    padding: 0.5rem 0 0.75rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1.5px solid var(--cream-darker);
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 1.5rem 1rem; }
+    main { padding: 1.25rem 0.75rem 3rem; }
+    .word-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🇹🇭 <span>Thai</span> Alphabet &amp; Sounds</h1>
+  <p>44 consonants · 32 vowels · tone rules · sounds that actually mean something</p>
+</header>
+
+<div class="translate-bar">
+  <label>🌐 Translate Page:</label>
+  <div id="google_translate_element"></div>
+</div>
+
+<main>
+
+  <div class="lang-hero">
+    <div class="lang-flag">🇹🇭</div>
+    <div class="lang-hero-text">
+      <div class="native-name">ภาษาไทย</div>
+      <h2>Thai Script</h2>
+      <p>Thai has no spaces between words. Every syllable carries one of 5 tones, decided by consonant class, vowel length, and tone marks together.</p>
+    </div>
+  </div>
+
+  <!-- WORD OF THE DAY -->
+  <div class="wotd-card" id="wotd-card">
+    <div>
+      <div class="wotd-label">⭐ Letter of the Day</div>
+      <div class="wotd-en" id="wotd-en">—</div>
+      <div class="wotd-tr" id="wotd-tr">—</div>
+      <div class="wotd-rom" id="wotd-rom">—</div>
+    </div>
+    <button class="wotd-speak" id="wotd-speak-btn" onclick="speak(document.getElementById('wotd-tr').textContent)">🔊</button>
+  </div>
+
+  <div class="voice-toggle-wrap">
+    <span class="voice-toggle-label">🎙 Voice:</span>
+    <div class="voice-toggle">
+      <button class="voice-btn active" onclick="setVoiceGender('th-TH','female',this)">♀ Female</button>
+      <button class="voice-btn" onclick="setVoiceGender('th-TH','male',this)">♂ Male</button>
+    </div>
+  </div>
+
+  <!-- COLLAPSIBLE CULTURAL NOTES -->
+  <div class="cultural-drawer" id="cultural-drawer">
+    <button class="cultural-toggle" onclick="toggleCultural()">
+      <span>✦ Reading Rules &amp; Quick Tips</span>
+      <span class="cultural-toggle-chevron">▼</span>
+    </button>
+    <div class="cultural-body">
+      <ul>
+        <li><strong>Thai has no spaces between words</strong> within a sentence — spaces are only used between clauses or sentences.</li>
+        <li><strong>Consonant class matters:</strong> every consonant is Mid, High, or Low class, and that class combines with the tone mark and syllable type to decide the tone.</li>
+        <li><strong>Live vs. dead syllables:</strong> a "live" syllable ends in a long vowel or a sonorant sound (m, n, ng, w, y); a "dead" syllable ends in a short vowel or a stop sound (k, p, t). This distinction changes which tone rule applies.</li>
+        <li><strong>Vowel length changes meaning</strong>, not just pronunciation — ขาว (khǎao, "white") and ข้าว (khâao, "rice") differ only in tone/length but mean completely different things.</li>
+        <li><strong>Tone marks only work with the consonant class:</strong> the same mark produces a different tone on a Mid, High, or Low class consonant.</li>
+        <li><strong>Vowels can surround the consonant</strong> — they may appear before, after, above, or below it (or a combination), which trips up a lot of beginners reading left-to-right out of habit.</li>
+        <li><strong>Consonant clusters are read as one blended sound</strong> (e.g. กร, ปล, ตร) rather than two separate syllables.</li>
+        <li><strong>ๆ (mai yamok)</strong> tells you to repeat the word before it — very common in casual speech, not just writing.</li>
+        <li><strong>Reduplication softens or emphasizes</strong> — Thai speakers often repeat an adjective (สวยๆ, เร็วๆ) to soften a statement or add casual emphasis, similar to how English doubles a word for effect ("quick quick!").</li>
+        <li><strong>Interjections carry real tone and meaning</strong> — sounds like เอ๊ะ, อ้าว, and โอ้โห aren't random noises, they're specific, understood reactions the way "huh?" or "whoa" are in English.</li>
+        <li><strong>Two consonants are obsolete</strong> (ฃ and ฅ) — you'll see them listed in the alphabet but they're never used in modern writing.</li>
+        <li><strong>There's no question mark in standard Thai</strong> — questions are marked with words like ไหม or หรือ at the end of a sentence instead.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-tabs">
+    <button class="sec-btn active" onclick="switchSection('words',this)">🔤 Alphabet</button>
+    <button class="sec-btn" onclick="switchSection('sentences',this)">🗣️ Sounds</button>
+    <button class="sec-btn" onclick="switchSection('favorites',this)">⭐ Favorites</button>
+    <button class="sec-btn" onclick="switchSection('emergency',this)">📋 Cheat Sheet</button>
+  </div>
+
+  <!-- FAVORITES -->
+  <div id="sec-favorites" class="section-content">
+    <div id="fav-panel"></div>
+  </div>
+
+  <!-- WORDS -->
+  <div id="sec-words" class="section-content active">
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem;">
+      <p style="color:var(--ink-muted);font-style:italic;font-size:0.9rem;">💡 Romanization + class/sound shown below each letter.</p>
+      <span class="kbd-hint"><kbd>S</kbd> speaks last hovered card</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <div class="flip-toggle-wrap" style="margin-bottom:0;">
+        <span class="flip-toggle-label">🃏 Flip Mode:</span>
+        <button class="flip-mode-btn" id="flip-btn" onclick="toggleFlipMode(this)">Off</button>
+      </div>
+      <span style="font-size:0.82rem;color:var(--ink-muted);font-style:italic;">Hover a card to reveal Thai when on</span>
+    </div>
+    <div class="search-bar">
+      <input class="search-input" type="text" placeholder="Search letters, marks, numerals..." oninput="filterWords(this.value)">
+    </div>
+    <div id="word-categories"></div>
+  </div>
+
+  <!-- SENTENCES -->
+  <div id="sec-sentences" class="section-content">
+    <div id="sentence-groups"></div>
+  </div>
+
+  <!-- EMERGENCY -->
+  <div id="sec-emergency" class="section-content">
+    <p style="color:var(--rose);font-weight:700;margin-bottom:1rem;font-size:1.05rem;">📋 The tone rule algorithm at a glance — consonant class + syllable type + tone mark = tone. Tap 🔊 to hear each example.</p>
+    <div class="emergency-grid" id="emergency-grid"></div>
+  </div>
+
+</main>
+
+<!-- FLOATING EMERGENCY BUTTON -->
+<button class="emergency-fab" onclick="openEmergency()">
+  📋 <span class="fab-label">Cheat Sheet</span>
+</button>
+
+<footer>Built for the <span>wandering soul</span> — free forever, hosted on GitHub Pages.</footer>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'th',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+// ── SUPER-SECTION DEFINITIONS ──
+// Each group has a label, accent class, open-by-default flag, and list of category keys
+const SUPER_SECTIONS = [
+  {
+    label: '🔤 Consonants',
+    cls: 'super-core',
+    openByDefault: true,
+    cats: ['⚫ Mid Class', '🔴 High Class', '🔵 Low Class', '🔗 Consonant Clusters']
+  },
+  {
+    label: '🔊 Vowels',
+    cls: 'super-daily',
+    openByDefault: false,
+    cats: ['📏 Short Vowels', '📐 Long Vowels', '🌊 Diphthongs & Special']
+  },
+  {
+    label: '🎵 Tone Marks',
+    cls: 'super-language',
+    openByDefault: false,
+    cats: ['🎶 The 4 Tone Marks']
+  },
+  {
+    label: '🔢 Numbers & Symbols',
+    cls: 'super-culture',
+    openByDefault: false,
+    cats: ['🔢 Thai Numerals', '✏️ Punctuation & Marks']
+  }
+];
+
+// ── SOUND GROUP DEFINITIONS (interjections, onomatopoeia, reduplication) ──
+const SENTENCE_GROUPS = [
+  {
+    label: '😲 Surprise & Shock',
+    indices: [0, 1, 2, 3, 4]
+  },
+  {
+    label: '🎉 Excitement & Joy',
+    indices: [5, 6, 7, 8]
+  },
+  {
+    label: '😒 Annoyance & Dismissal',
+    indices: [9, 10, 11, 12, 13]
+  },
+  {
+    label: '🤔 Thinking & Filler Sounds',
+    indices: [14, 15, 16]
+  },
+  {
+    label: '🐾 Animal Sounds',
+    indices: [17, 18, 19, 20, 21]
+  },
+  {
+    label: '💥 Impact & Action Sounds',
+    indices: [22, 23, 24, 25]
+  },
+  {
+    label: '🔁 Reduplication for Emphasis',
+    indices: [26, 27, 28]
+  }
+];
+
+const LANG = {
+  voiceCode: 'th-TH',
+  voiceGender: 'female',
+  categories: {
+    '⚫ Mid Class': {
+      cls: 'cat-titles',
+      words: [
+        {en: 'Kor Kai (chicken)', tr: 'ก', rom: 'Mid class · sound: g/k'},
+        {en: 'Jor Jaan (plate)', tr: 'จ', rom: 'Mid class · sound: j'},
+        {en: 'Dor Chada (headdress)', tr: 'ฎ', rom: 'Mid class · sound: d'},
+        {en: 'Tor Patak (goad)', tr: 'ฏ', rom: 'Mid class · sound: t'},
+        {en: 'Dor Dek (child)', tr: 'ด', rom: 'Mid class · sound: d'},
+        {en: 'Tor Tao (turtle)', tr: 'ต', rom: 'Mid class · sound: t'},
+        {en: 'Bor Baimai (leaf)', tr: 'บ', rom: 'Mid class · sound: b'},
+        {en: 'Por Pla (fish)', tr: 'ป', rom: 'Mid class · sound: p'},
+        {en: 'Or Ang (basin)', tr: 'อ', rom: 'Mid class · silent / vowel carrier'},
+      ]
+    },
+    '🔴 High Class': {
+      cls: 'cat-survival',
+      words: [
+        {en: 'Khor Khai (egg)', tr: 'ข', rom: 'High class · sound: kh'},
+        {en: 'Khor Khuat (bottle) — obsolete', tr: 'ฃ', rom: 'High class · not used in modern writing'},
+        {en: 'Chor Ching (cymbals)', tr: 'ฉ', rom: 'High class · sound: ch'},
+        {en: 'Thor Thaan (base)', tr: 'ฐ', rom: 'High class · sound: th'},
+        {en: 'Thor Thung (bag)', tr: 'ถ', rom: 'High class · sound: th'},
+        {en: 'Phor Phueng (bee)', tr: 'ผ', rom: 'High class · sound: ph'},
+        {en: 'For Fa (lid)', tr: 'ฝ', rom: 'High class · sound: f'},
+        {en: 'Sor Sala (pavilion)', tr: 'ศ', rom: 'High class · sound: s'},
+        {en: 'Sor Ruesi (hermit)', tr: 'ษ', rom: 'High class · sound: s'},
+        {en: 'Sor Suea (tiger)', tr: 'ส', rom: 'High class · sound: s'},
+        {en: 'Hor Hip (chest/box)', tr: 'ห', rom: 'High class · sound: h'},
+      ]
+    },
+    '🔵 Low Class': {
+      cls: 'cat-pronouns',
+      words: [
+        {en: 'Khor Khwai (buffalo)', tr: 'ค', rom: 'Low class · sound: kh'},
+        {en: 'Khor Khon (person) — obsolete', tr: 'ฅ', rom: 'Low class · not used in modern writing'},
+        {en: 'Khor Rakhang (bell)', tr: 'ฆ', rom: 'Low class · sound: kh'},
+        {en: 'Ngor Ngu (snake)', tr: 'ง', rom: 'Low class · sound: ng'},
+        {en: 'Chor Chang (elephant)', tr: 'ช', rom: 'Low class · sound: ch'},
+        {en: 'Sor So (chain)', tr: 'ซ', rom: 'Low class · sound: s'},
+        {en: 'Chor Choe (tree)', tr: 'ฌ', rom: 'Low class · sound: ch'},
+        {en: 'Yor Ying (woman)', tr: 'ญ', rom: 'Low class · sound: y'},
+        {en: 'Thor Montho (mythical queen)', tr: 'ฑ', rom: 'Low class · sound: th'},
+        {en: 'Thor Phuthao (elder)', tr: 'ฒ', rom: 'Low class · sound: th'},
+        {en: 'Nor Nen (novice monk)', tr: 'ณ', rom: 'Low class · sound: n'},
+        {en: 'Thor Thahan (soldier)', tr: 'ท', rom: 'Low class · sound: th'},
+        {en: 'Thor Thong (flag)', tr: 'ธ', rom: 'Low class · sound: th'},
+        {en: 'Nor Nu (mouse)', tr: 'น', rom: 'Low class · sound: n'},
+        {en: 'Phor Phaan (tray)', tr: 'พ', rom: 'Low class · sound: ph'},
+        {en: 'For Fan (teeth)', tr: 'ฟ', rom: 'Low class · sound: f'},
+        {en: 'Phor Samphao (sailboat)', tr: 'ภ', rom: 'Low class · sound: ph'},
+        {en: 'Mor Ma (horse)', tr: 'ม', rom: 'Low class · sound: m'},
+        {en: 'Yor Yak (giant)', tr: 'ย', rom: 'Low class · sound: y'},
+        {en: 'Ror Ruea (boat)', tr: 'ร', rom: 'Low class · sound: r'},
+        {en: 'Lor Ling (monkey)', tr: 'ล', rom: 'Low class · sound: l'},
+        {en: 'Wor Waen (ring)', tr: 'ว', rom: 'Low class · sound: w'},
+        {en: 'Lor Chula (kite)', tr: 'ฬ', rom: 'Low class · sound: l'},
+        {en: 'Hor Nokhuk (owl)', tr: 'ฮ', rom: 'Low class · sound: h'},
+      ]
+    },
+    '🔗 Consonant Clusters': {
+      cls: 'cat-classifiers',
+      words: [
+        {en: 'Kr- cluster', tr: 'กร', rom: 'e.g. กราบ (kràap, to prostrate)'},
+        {en: 'Kl- cluster', tr: 'กล', rom: 'e.g. กลาง (klaang, middle)'},
+        {en: 'Kw- cluster', tr: 'กว', rom: 'e.g. กวาง (kwaang, deer)'},
+        {en: 'Khr- cluster', tr: 'คร', rom: 'e.g. ครู (khruu, teacher)'},
+        {en: 'Khl- cluster', tr: 'คล', rom: 'e.g. คลอง (khlong, canal)'},
+        {en: 'Pr- cluster', tr: 'ปร', rom: 'e.g. ประตู (pratuu, door)'},
+        {en: 'Pl- cluster', tr: 'ปล', rom: 'e.g. ปลา (plaa, fish)'},
+        {en: 'Phr- cluster', tr: 'พร', rom: 'e.g. พระ (phrá, monk)'},
+        {en: 'Tr- cluster', tr: 'ตร', rom: 'e.g. ตรง (trong, straight)'},
+      ]
+    },
+    '📏 Short Vowels': {
+      cls: 'cat-food',
+      words: [
+        {en: 'Short A', tr: '◌ะ', rom: 'a'},
+        {en: 'Short I', tr: '◌ิ', rom: 'i'},
+        {en: 'Short Ue', tr: '◌ึ', rom: 'ue'},
+        {en: 'Short U', tr: '◌ุ', rom: 'u'},
+        {en: 'Short E', tr: 'เ◌ะ', rom: 'e'},
+        {en: 'Short Ae', tr: 'แ◌ะ', rom: 'ae'},
+        {en: 'Short O', tr: 'โ◌ะ', rom: 'o'},
+        {en: 'Short Open O', tr: 'เ◌าะ', rom: 'o (open)'},
+        {en: 'Short Ia', tr: 'เ◌ียะ', rom: 'ia'},
+        {en: 'Short Uea', tr: 'เ◌ือะ', rom: 'uea'},
+        {en: 'Short Ua', tr: '◌ัวะ', rom: 'ua'},
+      ]
+    },
+    '📐 Long Vowels': {
+      cls: 'cat-transport',
+      words: [
+        {en: 'Long A', tr: '◌า', rom: 'aa'},
+        {en: 'Long I', tr: '◌ี', rom: 'ii'},
+        {en: 'Long Ue', tr: '◌ื', rom: 'uue'},
+        {en: 'Long U', tr: '◌ู', rom: 'uu'},
+        {en: 'Long E', tr: 'เ◌', rom: 'ee'},
+        {en: 'Long Ae', tr: 'แ◌', rom: 'aae'},
+        {en: 'Long O', tr: 'โ◌', rom: 'oo'},
+        {en: 'Long Open O', tr: '◌อ', rom: 'oo (open)'},
+        {en: 'Long Ia', tr: 'เ◌ีย', rom: 'ia'},
+        {en: 'Long Uea', tr: 'เ◌ือ', rom: 'uea'},
+        {en: 'Long Ua', tr: '◌ัว', rom: 'ua'},
+      ]
+    },
+    '🌊 Diphthongs & Special': {
+      cls: 'cat-money',
+      words: [
+        {en: 'Ai (mai malai)', tr: 'ไ◌', rom: 'ai'},
+        {en: 'Ai (mai muan)', tr: 'ใ◌', rom: 'ai'},
+        {en: 'Am', tr: '◌ำ', rom: 'am'},
+        {en: 'Ao', tr: 'เ◌า', rom: 'ao'},
+        {en: 'Rue', tr: 'ฤ', rom: 'rue / ri'},
+        {en: 'Ruue', tr: 'ฤๅ', rom: 'ruue'},
+        {en: 'Lue — obsolete', tr: 'ฦ', rom: 'lue (essentially unused today)'},
+      ]
+    },
+    '🎶 The 4 Tone Marks': {
+      cls: 'cat-questions',
+      words: [
+        {en: 'Mai Ek (1st tone mark)', tr: '◌่', rom: 'Pulls tone toward low/falling depending on class'},
+        {en: 'Mai Tho (2nd tone mark)', tr: '◌้', rom: 'Pulls tone toward falling/high depending on class'},
+        {en: 'Mai Tri (3rd tone mark)', tr: '◌๊', rom: 'High tone · Mid class consonants only'},
+        {en: 'Mai Chattawa (4th tone mark)', tr: '◌๋', rom: 'Rising tone · Mid class consonants only'},
+      ]
+    },
+    '✏️ Punctuation & Marks': {
+      cls: 'cat-colors',
+      words: [
+        {en: 'Mai Yamok (repeat mark)', tr: 'ๆ', rom: 'Repeats the word before it, e.g. เร็วๆ'},
+        {en: 'Paiyannoi (abbreviation)', tr: 'ฯ', rom: 'Marks a shortened word, e.g. กรุงเทพฯ'},
+        {en: 'Paiyan Yai (et cetera)', tr: 'ฯลฯ', rom: 'Equivalent to "etc."'},
+        {en: 'Karan (silent mark)', tr: '◌์', rom: 'Silences the letter beneath it, common in loanwords'},
+        {en: 'Fongman (old paragraph mark)', tr: '๏', rom: 'Historic mark, rarely seen today'},
+      ]
+    },
+    '🔢 Thai Numerals': {
+      cls: 'cat-numbers',
+      isMergedNumbers: true,
+      drillWords: [
+        {en: '0', tr: '๐', rom: 'Sǔun'},
+        {en: '1', tr: '๑', rom: 'Nùeng'},
+        {en: '2', tr: '๒', rom: 'Sǒng'},
+        {en: '3', tr: '๓', rom: 'Sǎam'},
+        {en: '4', tr: '๔', rom: 'Sìi'},
+        {en: '5', tr: '๕', rom: 'Hâa'},
+        {en: '6', tr: '๖', rom: 'Hòk'},
+        {en: '7', tr: '๗', rom: 'Jèt'},
+        {en: '8', tr: '๘', rom: 'Pàet'},
+        {en: '9', tr: '๙', rom: 'Kâo'},
+      ],
+      words: [
+        {en: 'Ten', tr: 'สิบ', rom: 'Sìp'},
+        {en: 'Hundred', tr: 'ร้อย', rom: 'Rɔ́ɔi'},
+        {en: 'Thousand', tr: 'พัน', rom: 'Phan'},
+        {en: 'Ten thousand', tr: 'หมื่น', rom: 'Mùuen'},
+        {en: 'Hundred thousand', tr: 'แสน', rom: 'Sǎen'},
+        {en: 'Million', tr: 'ล้าน', rom: 'Láan'},
+      ]
+    },
+  },
+  sentences: [
+    {en: '"Huh?!" — sudden surprise or confusion', tr: 'เอ๊ะ', rom: 'Óe'},
+    {en: '"Oh! What happened?" — mild shock, realization', tr: 'อ้าว', rom: 'Âao'},
+    {en: '"Oh my god! No way!" — shock, disbelief (literally "already dead")', tr: 'ตายแล้ว', rom: 'Taai láew'},
+    {en: '"Eek! Yikes!" — fright or alarm, often said by women', tr: 'ว้าย', rom: 'Wáai'},
+    {en: '"Ouch! Oh geez" — pain or frustration', tr: 'โอ๊ย', rom: 'Óoi'},
+    {en: '"Wow!" — amazement, awe', tr: 'โอ้โห', rom: 'Ôohǒh'},
+    {en: '"Hooray!" — celebration, cheering', tr: 'ไชโย', rom: 'Chai-yoh'},
+    {en: '"Yay!" — happy, pleased', tr: 'เย่', rom: 'Yê'},
+    {en: '"There you go! Come on!" — encouragement, triumph', tr: 'เอ้า', rom: 'Áo'},
+    {en: '"Hmph" — annoyed grunt, irritation', tr: 'ฮึ', rom: 'Hʉ́'},
+    {en: '"Ugh, whatever" — dismissive, unimpressed', tr: 'เชอะ', rom: 'Chóe'},
+    {en: '"Oh come on! / My!" — mild exasperation or admiration depending on tone', tr: 'แหม', rom: 'Mǎe'},
+    {en: '"Ew! Yuck!" — disgust', tr: 'แหวะ', rom: 'Wàe'},
+    {en: '"Really? No way" — disbelief, mild challenge', tr: 'จริงดิ', rom: 'Jing dì'},
+    {en: '"Umm... uh..." — hesitation filler while thinking', tr: 'เอ่อ', rom: 'Èr'},
+    {en: '"Uh-huh, yeah" — casual agreement, listening cue', tr: 'เออ', rom: 'Oer'},
+    {en: '"Oh, I see" — realization, understanding', tr: 'อ๋อ', rom: 'Ǒr'},
+    {en: 'Woof woof — dog bark', tr: 'โฮ่ง โฮ่ง', rom: 'Hôhng hôhng'},
+    {en: 'Meow — cat sound', tr: 'เหมียว', rom: 'Mǐeow'},
+    {en: 'Oink oink — pig sound', tr: 'อู๊ด อู๊ด', rom: 'Úut úut'},
+    {en: 'Cock-a-doodle-doo — rooster crow', tr: 'เอ้กอีเอ้ก', rom: 'Ék-ii-ék'},
+    {en: 'Caw caw — crow / raven sound', tr: 'กา กา', rom: 'Kaa kaa'},
+    {en: 'Bang! — gunshot or sharp impact', tr: 'ปัง', rom: 'Pang'},
+    {en: 'Crash! — loud collision or breaking', tr: 'โครม', rom: 'Khroom'},
+    {en: 'Boom! — explosion, heavy thud', tr: 'บึ้ม', rom: 'Bʉ̂m'},
+    {en: 'Ding! Click — light-bulb moment, sudden idea', tr: 'ปิ๊ง', rom: 'Pîng'},
+    {en: '"Pretty" (said casually) — repeating an adjective softens or adds emphasis', tr: 'สวยๆ', rom: 'Sǔay sǔay'},
+    {en: '"Quick, quick! Hurry up!" — repetition adds urgency', tr: 'เร็วๆ', rom: 'Rew rew'},
+    {en: '"Slowly, slowly / take it easy" — repetition softens a command', tr: 'ช้าๆ', rom: 'Cháa cháa'},
+  ],
+  emergency: [
+    {en: 'Mid class + no mark = Mid tone', tr: 'กา', rom: 'Kaa — level, mid tone'},
+    {en: 'Low class + no mark, live syllable = Mid tone', tr: 'มา', rom: 'Maa — level, mid tone'},
+    {en: 'High class + no mark, live syllable = Rising tone', tr: 'ขา', rom: 'Khǎa — rising tone'},
+    {en: 'Mid/High class + Mai Ek = Low tone', tr: 'ข่า', rom: 'Khàa — low tone'},
+    {en: 'Low class + Mai Ek = Falling tone', tr: 'ค่า', rom: 'Khâa — falling tone'},
+    {en: 'Mid/High class + Mai Tho = Falling tone', tr: 'ข้า', rom: 'Khâa — falling tone'},
+    {en: 'Low class + Mai Tho = High tone', tr: 'ค้า', rom: 'Kháa — high tone'},
+    {en: 'Mid class + Mai Tri = High tone', tr: 'ก๊า', rom: 'Káa — high tone (mid class only)'},
+    {en: 'Mid class + Mai Chattawa = Rising tone', tr: 'ก๋า', rom: 'Kǎa — rising tone (mid class only)'},
+    {en: 'Low class + short vowel/stop ending = Low tone', tr: 'คะ', rom: 'Khá — dead syllable, low class'},
+    {en: 'High/Mid class + short vowel/stop ending = Low tone', tr: 'ขะ', rom: 'Khà — dead syllable, high class'},
+    {en: 'Low class + long vowel + stop ending = Falling tone', tr: 'คาก', rom: 'Khâak — dead syllable, long vowel'},
+    {en: 'Live syllable = ends in long vowel, m/n/ng/w/y', tr: 'กิน', rom: 'Kin — ends in "n," a live syllable'},
+    {en: 'Dead syllable = ends in short vowel, or k/p/t', tr: 'กัด', rom: 'Kàt — ends in "t," a dead syllable'},
+  ]
+};
+
+// ── FAVORITES ──
+let favorites = JSON.parse(localStorage.getItem('thFavs') || '{}');
+function saveFavs() { localStorage.setItem('thFavs', JSON.stringify(favorites)); }
+function toggleFav(id, btn) {
+  favorites[id] = !favorites[id];
+  if (!favorites[id]) delete favorites[id];
+  btn.classList.toggle('faved', !!favorites[id]);
+  btn.title = favorites[id] ? 'Unfavorite' : 'Favorite';
+  // also sync any duplicate fav buttons for same id (e.g. in fav panel)
+  document.querySelectorAll(`.fav-btn[onclick*="${id}"]`).forEach(b => {
+    b.classList.toggle('faved', !!favorites[id]);
+  });
+  saveFavs();
+}
+
+// ── BUILD FAVORITES PANEL ──
+function buildFavorites() {
+  const panel = document.getElementById('fav-panel');
+  const ids = Object.keys(favorites).filter(k => favorites[k]);
+  if (!ids.length) {
+    panel.innerHTML = `<div class="fav-empty">
+      <span class="fav-empty-icon">⭐</span>
+      <p>No favorites yet — tap the <strong>★</strong> on any word card to save it here.</p>
+    </div>`;
+    return;
+  }
+  // Collect all words across categories
+  const allWords = {};
+  Object.entries(LANG.categories).forEach(([catName, cat]) => {
+    if (cat.isMergedNumbers) {
+      cat.drillWords.forEach((w, i) => { allWords[`th-${catName}-d${i}`] = w; });
+      cat.words.forEach((w, i) => { allWords[`th-${catName}-t${i}`] = w; });
+    } else if (cat.words) {
+      cat.words.forEach((w, i) => { allWords[`th-${catName}-${i}`] = w; });
+    }
+  });
+  const cards = ids.map(id => {
+    const w = allWords[id];
+    if (!w) return '';
+    return `<div class="word-card">
+      <span class="word-en">${w.en}</span>
+      <div class="word-right">
+        <div class="word-translated">${w.tr}</div>
+        <div class="word-roman">${w.rom}</div>
+      </div>
+      <button class="speak-btn" onclick="speak('${w.tr.replace(/'/g,"\\'")}')">🔊</button>
+      <button class="fav-btn faved" onclick="toggleFav('${id}',this);buildFavorites();" title="Unfavorite">★</button>
+    </div>`;
+  }).filter(Boolean).join('');
+  panel.innerHTML = `
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+      <p style="color:var(--ink-muted);font-style:italic;font-size:0.9rem;">⭐ ${ids.length} saved word${ids.length!==1?'s':''}. Tap ★ to remove.</p>
+      <button class="clear-favs-btn" onclick="clearAllFavs()">✕ Clear all</button>
+    </div>
+    <div class="word-grid">${cards}</div>`;
+}
+
+// ── VOICE ──
+let currentGender = 'female';
+function setVoiceGender(code, gender, btn) {
+  currentGender = gender;
+  btn.closest('.voice-toggle').querySelectorAll('.voice-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'th-TH';
+  u.rate = 0.85;
+  const voices = window.speechSynthesis.getVoices();
+  const langVoices = voices.filter(v => v.lang.startsWith('th'));
+  if (langVoices.length) {
+    const preferred = langVoices.find(v => {
+      const n = v.name.toLowerCase();
+      return currentGender === 'female'
+        ? (n.includes('female') || n.includes('woman'))
+        : (n.includes('male') || n.includes('man'));
+    }) || langVoices[currentGender === 'female' ? 0 : langVoices.length - 1];
+    u.voice = preferred;
+  }
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+
+// ── TOGGLE CULTURAL DRAWER ──
+function toggleCultural() {
+  const drawer = document.getElementById('cultural-drawer');
+  drawer.classList.toggle('open');
+}
+
+// ── TOGGLE SUPER SECTION (exclusive) ──
+function toggleSuperSection(el) {
+  const target = el.closest('.super-section');
+  const isOpen = target.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.super-section').forEach(s => s.classList.remove('open'));
+  // Re-open if it was closed
+  if (!isOpen) target.classList.add('open');
+}
+
+// ── TOGGLE SENTENCE GROUP (exclusive) ──
+function toggleSentenceGroup(el) {
+  const target = el.closest('.sentence-group');
+  const isOpen = target.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.sentence-group').forEach(s => s.classList.remove('open'));
+  // Re-open if it was closed
+  if (!isOpen) target.classList.add('open');
+}
+
+// ── RENDER A STANDARD WORD CARD ──
+function wordCardHtml(w, id) {
+  const isFaved = !!favorites[id];
+  const tone = getToneBadge(w.rom);
+  return `<div class="word-card">
+    ${tone}
+    <span class="word-en">${w.en}</span>
+    <div class="word-right">
+      <div class="word-translated">${w.tr}</div>
+      <div class="word-roman">${w.rom}</div>
+    </div>
+    <button class="speak-btn" onclick="speak('${w.tr.replace(/'/g,"\\'")}')">🔊</button>
+    <button class="fav-btn ${isFaved?'faved':''}" onclick="toggleFav('${id}',this)" title="${isFaved?'Unfavorite':'Favorite'}">★</button>
+  </div>`;
+}
+
+// ── BUILD WORDS with SUPER-SECTIONS ──
+function buildWords() {
+  const container = document.getElementById('word-categories');
+  container.innerHTML = SUPER_SECTIONS.map(group => {
+    const bodyHtml = group.cats.map(catName => {
+      const catData = LANG.categories[catName];
+      if (!catData) return '';
+
+      // Merged numbers: drill grid on top + time/date words below
+      if (catData.isMergedNumbers) {
+        const drillHtml = catData.drillWords.map(w => `
+          <div class="number-card" onclick="speak('${w.tr.replace(/'/g,"\\'")}')">
+            <button class="speak-btn" onclick="event.stopPropagation();speak('${w.tr.replace(/'/g,"\\'")}')">🔊</button>
+            <div class="number-digit">${w.en}</div>
+            <div class="number-tr">${w.tr}</div>
+            <div class="number-rom">${w.rom}</div>
+          </div>`).join('');
+        const timeHtml = catData.words.map((w, i) => wordCardHtml(w, `th-${catName}-t${i}`)).join('');
+        return `<div class="category-block" data-cat="${catName}">
+          <div class="category-label ${catData.cls}">${catName}</div>
+          <p style="font-size:0.85rem;color:var(--ink-muted);margin-bottom:0.75rem;font-style:italic;">Tap any number card to hear it spoken aloud.</p>
+          <div class="number-grid" style="margin-bottom:1.25rem;">${drillHtml}</div>
+          <p style="font-size:0.9rem;font-weight:700;color:var(--ink-muted);margin-bottom:0.5rem;letter-spacing:0.04em;text-transform:uppercase;">💰 Big Number Words</p>
+          <div class="word-grid">${timeHtml}</div>
+        </div>`;
+      }
+
+      const wordsHtml = catData.words.map((w, i) => wordCardHtml(w, `th-${catName}-${i}`)).join('');
+      return `<div class="category-block" data-cat="${catName}">
+        <div class="category-label ${catData.cls}">${catName}</div>
+        <div class="word-grid">${wordsHtml}</div>
+      </div>`;
+    }).join('');
+
+    const totalWords = group.cats.reduce((acc, catName) => {
+      const cat = LANG.categories[catName];
+      if (!cat) return acc;
+      if (cat.isMergedNumbers) return acc + cat.drillWords.length + cat.words.length;
+      return acc + cat.words.length;
+    }, 0);
+
+    return `<div class="super-section ${group.cls} ${group.openByDefault ? 'open' : ''}">
+      <button class="super-section-toggle" onclick="toggleSuperSection(this)">
+        <div class="super-section-toggle-left">
+          <span>${group.label}</span>
+          <span class="super-section-badge">${totalWords} words</span>
+        </div>
+        <span class="super-chevron">▼</span>
+      </button>
+      <div class="super-section-body">${bodyHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── BUILD SENTENCES with GROUPS ──
+function buildSentences() {
+  const container = document.getElementById('sentence-groups');
+  container.innerHTML = SENTENCE_GROUPS.map(group => {
+    // Deduplicate indices
+    const uniqueIndices = [...new Set(group.indices)].filter(i => i < LANG.sentences.length);
+    const sentencesHtml = uniqueIndices.map(i => {
+      const s = LANG.sentences[i];
+      return `<div class="sentence-card">
+        <div class="sentence-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="sentence-body">
+          <div class="sentence-en">${s.en}</div>
+          <div class="sentence-tr">${s.tr}</div>
+          <div class="sentence-roman">${s.rom}</div>
+        </div>
+        <button class="speak-btn" onclick="speak('${s.tr.replace(/'/g,"\\'")}')">🔊</button>
+      </div>`;
+    }).join('');
+
+    return `<div class="sentence-group">
+      <button class="sentence-group-toggle" onclick="toggleSentenceGroup(this)">
+        <span>${group.label}</span>
+        <div class="sentence-group-right">
+          <span class="sentence-group-count">${uniqueIndices.length} phrases</span>
+          <span class="sg-chevron">▼</span>
+        </div>
+      </button>
+      <div class="sentence-group-body">
+        <div class="sentence-list">${sentencesHtml}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── BUILD EMERGENCY ──
+function buildEmergency() {
+  document.getElementById('emergency-grid').innerHTML = LANG.emergency.map(e => `
+    <div class="emergency-card">
+      <div class="emergency-en">${e.en}</div>
+      <div class="emergency-tr">${e.tr}</div>
+      <div class="emergency-roman">${e.rom}</div>
+      <button class="emergency-speak" onclick="speak('${e.tr.replace(/'/g,"\\'")}')">🔊 Say it</button>
+    </div>`).join('');
+}
+
+// ── SEARCH (works across all super-sections) ──
+function filterWords(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#sec-words .word-card').forEach(card => {
+    card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? '' : 'none';
+  });
+  document.querySelectorAll('#sec-words .number-card').forEach(card => {
+    card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? '' : 'none';
+  });
+  document.querySelectorAll('#sec-words .category-block').forEach(block => {
+    const visibleWords = [...block.querySelectorAll('.word-card')].some(c => c.style.display !== 'none');
+    const visibleNums = [...block.querySelectorAll('.number-card')].some(c => c.style.display !== 'none');
+    block.style.display = (visibleWords || visibleNums) ? '' : 'none';
+  });
+  if (q) {
+    document.querySelectorAll('.super-section').forEach(section => {
+      const hasVisible = [...section.querySelectorAll('.word-card,.number-card')].some(c => c.style.display !== 'none');
+      if (hasVisible) section.classList.add('open');
+    });
+  }
+}
+
+// ── SECTION SWITCH ──
+function switchSection(sec, btn) {
+  document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sec-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + sec).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (sec === 'favorites') buildFavorites();
+  // scroll tabs into view
+  document.querySelector('.section-tabs').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// ── FAB: switch to emergency and scroll up ──
+function openEmergency() {
+  const btn = [...document.querySelectorAll('.sec-btn')].find(b => b.textContent.includes('Cheat Sheet'));
+  switchSection('emergency', btn);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── FLIP MODE ──
+let flipMode = false;
+function toggleFlipMode(btn) {
+  flipMode = !flipMode;
+  document.body.classList.toggle('flip-mode', flipMode);
+  btn.textContent = flipMode ? 'On' : 'Off';
+  btn.classList.toggle('active', flipMode);
+}
+
+// ── KEYBOARD SHORTCUT: S = speak last hovered ──
+let lastHoveredText = null;
+document.addEventListener('mouseover', e => {
+  const card = e.target.closest('.word-card');
+  if (card) {
+    const tr = card.querySelector('.word-translated');
+    if (tr) lastHoveredText = tr.textContent;
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 's' || e.key === 'S') {
+    if (lastHoveredText) speak(lastHoveredText);
+  }
+});
+
+// ── TONE BADGE (mid=green, low=blue, falling=red, high=gold, rising=purple) ──
+function getToneBadge(rom) {
+  // Guess tone from romanization diacritics
+  if (!rom) return '';
+  const toneChars = {'â':'falling','à':'low','á':'rising','ǎ':'rising','ô':'falling','ò':'low','ó':'rising','ǒ':'rising','û':'falling','ù':'low','ú':'rising','ǔ':'rising','ê':'falling','è':'low','é':'rising','ě':'rising','î':'falling','ì':'low','í':'rising','ǐ':'rising'};
+  for (const [ch, tone] of Object.entries(toneChars)) {
+    if (rom.includes(ch)) return `<span class="tone-badge tone-${tone}" title="Tone: ${tone}"></span>`;
+  }
+  return `<span class="tone-badge tone-mid" title="Tone: mid"></span>`;
+}
+
+// ── WORD OF THE DAY ──
+function buildWotd() {
+  // Collect all regular (non-drill) words
+  const pool = [];
+  Object.entries(LANG.categories).forEach(([catName, cat]) => {
+    const words = cat.isMergedNumbers ? [...cat.drillWords, ...cat.words] : (cat.words || []);
+    words.forEach(w => pool.push(w));
+  });
+  // Pick deterministically by day so it's stable all day
+  const dayIndex = Math.floor(Date.now() / 86400000);
+  const w = pool[dayIndex % pool.length];
+  document.getElementById('wotd-en').textContent = w.en;
+  document.getElementById('wotd-tr').textContent = w.tr;
+  document.getElementById('wotd-rom').textContent = w.rom;
+}
+
+// ── CLEAR FAVORITES ──
+function clearAllFavs() {
+  if (!confirm('Clear all favorites?')) return;
+  favorites = {};
+  saveFavs();
+  // un-star any visible fav buttons
+  document.querySelectorAll('.fav-btn').forEach(b => b.classList.remove('faved'));
+  buildFavorites();
+}
+
+// ── INIT ──
+buildWords();
+buildSentences();
+buildEmergency();
+buildWotd();
+
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+</script>
+</body>
+</html>
