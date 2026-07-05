@@ -967,6 +967,12 @@ const SUPER_SECTIONS = [
     cls: 'super-culture',
     openByDefault: false,
     cats: ['🔢 Thai Numerals', '✏️ Punctuation & Marks']
+  },
+  {
+    label: '🧩 Putting It Together',
+    cls: 'super-culture',
+    openByDefault: false,
+    cats: ['🧩 Syllable Building', '⚠️ Reading Exceptions & Quirks']
   }
 ];
 
@@ -999,6 +1005,18 @@ const SENTENCE_GROUPS = [
   {
     label: '🔁 Reduplication for Emphasis',
     indices: [26, 27, 28]
+  },
+  {
+    label: '😂 Laughing & Texting Sounds',
+    indices: [29, 30, 31, 32]
+  },
+  {
+    label: '💬 Sentence-Final Softeners',
+    indices: [33, 34, 35, 36]
+  },
+  {
+    label: '🌾 Regional Flavor (Isaan & Northern)',
+    indices: [37, 38, 39]
   }
 ];
 
@@ -1166,6 +1184,34 @@ const LANG = {
         {en: 'Million', tr: 'ล้าน', rom: 'Láan'},
       ]
     },
+    '🧩 Syllable Building': {
+      cls: 'cat-greetings',
+      words: [
+        {en: 'ก + า (consonant + long A)', tr: 'กา', rom: 'Kaa — "crow" or "kettle"'},
+        {en: 'ม + า (consonant + long A)', tr: 'มา', rom: 'Maa — "to come"'},
+        {en: 'ด + ู (consonant + long U)', tr: 'ดู', rom: 'Duu — "to look/watch"'},
+        {en: 'ต + า (consonant + long A)', tr: 'ตา', rom: 'Taa — "eye" or "grandfather"'},
+        {en: 'ห + ู (consonant + long U)', tr: 'หู', rom: 'Huu — "ear"'},
+        {en: 'ม + ี (consonant + long I)', tr: 'มี', rom: 'Mii — "to have"'},
+        {en: 'ป + ะ (consonant + short A)', tr: 'ปะ', rom: 'Pà — casual "to run into/meet"'},
+        {en: 'ก + ิ + น (adding a final consonant closes the syllable)', tr: 'กิน', rom: 'Kin — "to eat"'},
+        {en: 'น + อ + น (long open O + final N)', tr: 'นอน', rom: 'Noon — "to sleep"'},
+      ]
+    },
+    '⚠️ Reading Exceptions & Quirks': {
+      cls: 'cat-slang',
+      words: [
+        {en: '"To be" — shortened e-vowel using the ็ mark', tr: 'เป็น', rom: 'Pen — irregular short-vowel spelling'},
+        {en: '"Water" — irregular ำ + tone mark combo', tr: 'น้ำ', rom: 'Náam — sounds long despite the short-looking spelling'},
+        {en: '"Also / then" — shortened o-vowel using the ็ mark', tr: 'ก็', rom: 'Kôr — extremely common function word, irregular'},
+        {en: 'Silent leading ห changes the class of the next consonant', tr: 'หมา', rom: 'Mǎa — "dog," the ห is silent but forces a high-class rising tone'},
+        {en: 'Same silent-ห pattern', tr: 'ไหม', rom: 'Mǎi — question particle'},
+        {en: 'Same silent-ห pattern', tr: 'หนู', rom: 'Nǔu — "mouse," also used for "I/me" when speaking cutely or to children'},
+        {en: 'No written vowel between consonants = implied short a/o sound', tr: 'คน', rom: 'Khon — "person"'},
+        {en: 'Same implied-vowel pattern', tr: 'ถนน', rom: 'Thanǒn — "road"'},
+        {en: 'Same implied-vowel pattern', tr: 'สนุก', rom: 'Sanùk — "fun"'},
+      ]
+    },
   },
   sentences: [
     {en: '"Huh?!" — sudden surprise or confusion', tr: 'เอ๊ะ', rom: 'Óe'},
@@ -1197,6 +1243,17 @@ const LANG = {
     {en: '"Pretty" (said casually) — repeating an adjective softens or adds emphasis', tr: 'สวยๆ', rom: 'Sǔay sǔay'},
     {en: '"Quick, quick! Hurry up!" — repetition adds urgency', tr: 'เร็วๆ', rom: 'Rew rew'},
     {en: '"Slowly, slowly / take it easy" — repetition softens a command', tr: 'ช้าๆ', rom: 'Cháa cháa'},
+    {en: '"Haha" (texting) — laughing, from 5 = "hâa" in Thai numerals', tr: '555', rom: 'Hâa hâa hâa'},
+    {en: '"Hahaha!" (texting) — more emphatic laughing', tr: '5555+', rom: 'Hâa hâa hâa hâa...'},
+    {en: 'Cute giggle, playful laugh — usually typed, not spoken', tr: 'อิอิ', rom: 'I-i'},
+    {en: 'Actual spoken laughter', tr: 'ฮ่าๆ', rom: 'Hâa hâa'},
+    {en: 'Softens a statement, adds friendliness (not gendered like ครับ/ค่ะ)', tr: 'นะ', rom: 'Ná'},
+    {en: '"...right? / so..." — softens, invites agreement', tr: 'ล่ะ', rom: 'Lâ'},
+    {en: 'Casual softener, adds a light or questioning tone', tr: 'อ่ะ', rom: 'À'},
+    {en: '"...isn\'t it? / right?" — seeking friendly agreement', tr: 'เนอะ', rom: 'Nóe'},
+    {en: 'Isaan (Northeastern) sentence-ender, similar softening role to นะ', tr: 'เด้อ', rom: 'Dôe'},
+    {en: 'Isaan word for "no / not" — replaces ไม่ in Northeastern speech', tr: 'บ่', rom: 'Bòr'},
+    {en: 'Northern Thai (Kham Mueang) softener, similar to เนอะ', tr: 'เนาะ', rom: 'Náw'},
   ],
   emergency: [
     {en: 'Mid class + no mark = Mid tone', tr: 'กา', rom: 'Kaa — level, mid tone'},
